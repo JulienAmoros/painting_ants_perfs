@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class ClasseTest extends TestCase{
 	
-	//private Test test= new Test();
+	private Test test= new Test();
 
 	public ClasseTest(String testMethodName) {
 		
@@ -12,11 +12,16 @@ public class ClasseTest extends TestCase{
 	
 	}
 	
-	public void getRouge_should_return_rouge(){
+	/*public void getRouge_should_return_rouge(){
 		assertTrue(true);
+	}*/
+	public void testGetVert() throws Exception {
+		test.setColor(0);
+		test.setVert(154);
+		assertEquals(154,test.getVert());
+		
 	}
-	
-	/*public void testSetRouge() throws Exception {
+	public void testSetRouge() throws Exception {
 		
 		test.setColor(15484);
 		test.setRouge(248);
@@ -43,7 +48,7 @@ public class ClasseTest extends TestCase{
 	
 	test.setBleu(126);
 	assertEquals(126,test.getBleu());
-}*/
+}
 
 
 }

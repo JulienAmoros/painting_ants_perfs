@@ -17,7 +17,7 @@ public class Test {
 	}
 	
 	public int getVert(){
-		return color & 255<<8;
+		return color & (255<<8);
 		
 	}
 	
@@ -26,11 +26,11 @@ public class Test {
 	}
 	
 	public void setRouge(int rouge){
-		color=color-((color>>2*8)<<2*8)+rouge<<2*8;
+		color=color-((color>>2*8)<<2*8)+(rouge<<2*8);
 	}
 	
 	public void setVert(int vert){
-		//color=color-((color>>8)<<8)+rouge<<2*8;
+		color=color-((color>>8)<<8)+(vert<<8);
 	}
 	
 	public void setBleu(int bleu){
