@@ -482,12 +482,12 @@ public class PaintingAnts extends java.applet.Applet implements Runnable {
         }
 
       }
-      showStatus(lMessage);
+      //showStatus(lMessage);
 
       try {
         Thread.sleep(10);
       } catch (InterruptedException e) {
-        showStatus(e.toString());
+        //showStatus(e.toString());
       }
     }
   }
@@ -547,7 +547,7 @@ public class PaintingAnts extends java.applet.Applet implements Runnable {
    * update Fourmis per second
    */
   private synchronized void updateFPS() {
-    lastFps = fpsCounter;
+      showStatus("running("+Long.toString(fpsCounter)+")");
     fpsCounter = 0L;
   }
 }
