@@ -1,12 +1,20 @@
 package org.polytechtours.javaperformance.tp.paintingants;
 
-public class myColor {
+public class MyColor {
     public int color;
 
-    public myColor(int r, int g, int b){
+    public MyColor(int r, int g, int b){
         color = (r<<(2*8)) + (g<<8) + b;
     }
-
+    public MyColor(int rgb[]){
+    	color=0;
+    	setRed(rgb[0]);
+    	setGreen(rgb[1]);
+    	setBlue(rgb[2]);
+    }
+    public MyColor(int rgb){
+    	color=rgb;
+    }
     public void setRed(int red){
         color -= (this.getRed()<<(2*8));
         color += (red<<(2*8));
@@ -27,6 +35,18 @@ public class myColor {
     }
     public int getBlue(){
         return color%256;
+    }
+    
+    public int[] getRGB(){
+    	int rgb []= new int [3];
+    	rgb[0]=getRed();
+    	rgb[1]=getGreen();
+    	rgb[2]=getBlue();
+    	return rgb;
+    }
+    
+    public int getColor(){
+    	return color;
     }
 
 }
