@@ -29,28 +29,20 @@ public class PaintingAnts extends java.applet.Applet implements Runnable {
   private Thread mApplis, mThreadColony;
 
   private Dimension mDimension;
-  private long mCompteur = 0;
-  private Object mMutexCompteur = new Object();
   private boolean mPause = false;
 
   public BufferedImage mBaseImage;
   private Timer fpsTimer;
 
   /** Fourmis per second :) */
-  private Long fpsCounter = 0L;
-  /** stocke la valeur du compteur lors du dernier timer */
-  private Long lastFps = 0L;
+  private int fpsCounter = 0;
 
   /****************************************************************************/
   /**
    * incrémenter le compteur
    *
    */
-  public void compteur() {
-    synchronized (mMutexCompteur) {
-      mCompteur++;
-    }
-  }
+  public void compteur() {}
 
   /****************************************************************************/
   /**
@@ -457,39 +449,12 @@ public class PaintingAnts extends java.applet.Applet implements Runnable {
 
     mPainting.init();
 
-    Thread currentThread = Thread.currentThread();
-
     /*
      * for ( i=0 ; i<mColonie.size() ; i++ ) {
      * ((CFourmi)mColonie.elementAt(i)).start(); }
      */
 
     mThreadColony.start();
-
-    while (mApplis == currentThread) {
-      if (mPause) {
-        lMessage = "pause";
-      } else {
-        synchronized (this) {
-          lMessage = "running (" + lastFps + ") ";
-        }
-
-        synchronized (mMutexCompteur) {
-          mCompteur %= 10000;
-          for (i = 0; i < mCompteur / 1000; i++) {
-            lMessage += ".";
-          }
-        }
-
-      }
-      //showStatus(lMessage);
-
-      try {
-        Thread.sleep(10);
-      } catch (InterruptedException e) {
-        //showStatus(e.toString());
-      }
-    }
   }
 
   /****************************************************************************/
@@ -546,8 +511,8 @@ public class PaintingAnts extends java.applet.Applet implements Runnable {
   /**
    * update Fourmis per second
    */
-  private synchronized void updateFPS() {
+  private void updateFPS() {
       showStatus("running("+Long.toString(fpsCounter)+")");
-    fpsCounter = 0L;
+      fpsCounter = 0;
   }
 }
