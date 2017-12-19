@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eclipse-userlibraries>
+  <library name="Arquillian JUnit:Release">
+    <archive path="/home/julien/.m2/repository/org/jboss/arquillian/junit/arquillian-junit-container/1.1.15.Final/arquillian-junit-container-1.1.15.Final.jar" />
+    <archive path="/home/julien/.m2/repository/org/jboss/arquillian/junit/arquillian-junit-core/1.1.15.Final/arquillian-junit-core-1.1.15.Final.jar" />
+    <archive path="/home/julien/.m2/repository/org/jboss/arquillian/test/arquillian-test-api/1.1.15.Final/arquillian-test-api-1.1.15.Final.jar" />
+    <archive path="/home/julien/.m2/repository/org/jboss/arquillian/core/arquillian-core-api/1.1.15.Final/arquillian-core-api-1.1.15.Final.jar" />
+    <archive path="/home/julien/.m2/repository/org/jboss/arquillian/test/arquillian-test-spi/1.1.15.Final/arquillian-test-spi-1.1.15.Final.jar" />
+    <archive path="/home/julien/.m2/repository/org/jboss/arquillian/core/arquillian-core-spi/1.1.15.Final/arquillian-core-spi-1.1.15.Final.jar" />
+    <archive path="/home/julien/.m2/repository/org/jboss/arquillian/container/arquillian-container-test-api/1.1.15.Final/arquillian-container-test-api-1.1.15.Final.jar" />
+    <archive path="/home/julien/.m2/repository/org/jboss/shrinkwrap/shrinkwrap-api/1.2.6/shrinkwrap-api-1.2.6.jar" />
+    <archive path="/home/julien/.m2/repository/org/jboss/arquillian/container/arquillian-container-test-spi/1.1.15.Final/arquillian-container-test-spi-1.1.15.Final.jar" />
+    <archive path="/home/julien/.m2/repository/org/jboss/arquillian/container/arquillian-container-spi/1.1.15.Final/arquillian-container-spi-1.1.15.Final.jar" />
+    <archive path="/home/julien/.m2/repository/org/jboss/shrinkwrap/descriptors/shrinkwrap-descriptors-api-base/2.0.0/shrinkwrap-descriptors-api-base-2.0.0.jar" />
+    <archive path="/home/julien/.m2/repository/org/jboss/arquillian/core/arquillian-core-impl-base/1.1.15.Final/arquillian-core-impl-base-1.1.15.Final.jar" />
+    <archive path="/home/julien/.m2/repository/org/jboss/arquillian/test/arquillian-test-impl-base/1.1.15.Final/arquillian-test-impl-base-1.1.15.Final.jar" />
+    <archive path="/home/julien/.m2/repository/org/jboss/arquillian/container/arquillian-container-impl-base/1.1.15.Final/arquillian-container-impl-base-1.1.15.Final.jar" />
+    <archive path="/home/julien/.m2/repository/org/jboss/arquillian/config/arquillian-config-api/1.1.15.Final/arquillian-config-api-1.1.15.Final.jar" />
+    <archive path="/home/julien/.m2/repository/org/jboss/arquillian/config/arquillian-config-impl-base/1.1.15.Final/arquillian-config-impl-base-1.1.15.Final.jar" />
+    <archive path="/home/julien/.m2/repository/org/jboss/shrinkwrap/descriptors/shrinkwrap-descriptors-spi/2.0.0/shrinkwrap-descriptors-spi-2.0.0.jar" />
+    <archive path="/home/julien/.m2/repository/org/jboss/arquillian/container/arquillian-container-test-impl-base/1.1.15.Final/arquillian-container-test-impl-base-1.1.15.Final.jar" />
+    <archive path="/home/julien/.m2/repository/org/jboss/shrinkwrap/shrinkwrap-impl-base/1.2.6/shrinkwrap-impl-base-1.2.6.jar" />
+    <archive path="/home/julien/.m2/repository/org/jboss/shrinkwrap/shrinkwrap-spi/1.2.6/shrinkwrap-spi-1.2.6.jar" />
+  </library>
+  <library name="Maven: junit:junit:3.8.1">
+    <archive path="/home/julien/.m2/repository/junit/junit/3.8.1/junit-3.8.1.jar" />
+  </library>
+  <library name="Maven: org.junit.jupiter:junit-jupiter-api:5.1.0-M1">
+    <archive path="/home/julien/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.1.0-M1/junit-jupiter-api-5.1.0-M1.jar" />
+  </library>
+  <library name="Maven: org.junit.platform:junit-platform-commons:1.1.0-M1">
+    <archive path="/home/julien/.m2/repository/org/junit/platform/junit-platform-commons/1.1.0-M1/junit-platform-commons-1.1.0-M1.jar" />
+  </library>
+  <library name="Maven: org.opentest4j:opentest4j:1.0.0">
+    <archive path="/home/julien/.m2/repository/org/opentest4j/opentest4j/1.0.0/opentest4j-1.0.0.jar" />
+  </library>
+</eclipse-userlibraries>
+
