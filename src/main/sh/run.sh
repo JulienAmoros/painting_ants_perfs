@@ -8,5 +8,5 @@ else
     FILE="$FOLDER/ants_worst.html";
 fi
 
-mvn -f ../../../pom.xml clean install
+mvn -f ../../../pom.xml install
 appletviewer -J-Djava.security.policy=../resources/policy.txt "$FILE"

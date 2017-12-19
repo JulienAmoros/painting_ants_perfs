@@ -13,7 +13,7 @@ import java.util.Vector;
 
 import javax.swing.Timer;
 
-public class PaintingAnts extends java.applet.Applet implements Runnable {
+public class PaintingAnts extends java.applet.Applet {
   private static final long serialVersionUID = 1L;
   // parametres
   private int mLargeur;
@@ -26,7 +26,7 @@ public class PaintingAnts extends java.applet.Applet implements Runnable {
   private Vector<CFourmi> mColonie = new Vector<CFourmi>();
   private CColonie mColony;
 
-  private Thread mApplis, mThreadColony;
+  private Thread mThreadColony;
 
   private Dimension mDimension;
   private boolean mPause = false;
@@ -52,10 +52,6 @@ public class PaintingAnts extends java.applet.Applet implements Runnable {
   @Override
   public void destroy() {
     // System.out.println(this.getName()+ ":destroy()");
-
-    if (mApplis != null) {
-      mApplis = null;
-    }
   }
 
   /****************************************************************************/
@@ -91,7 +87,7 @@ public class PaintingAnts extends java.applet.Applet implements Runnable {
     return mPause;
   }
 
-  public synchronized void IncrementFpsCounter() {
+  public void IncrementFpsCounter() {
     fpsCounter++;
   }
 
@@ -440,12 +436,8 @@ public class PaintingAnts extends java.applet.Applet implements Runnable {
    * deux couleurs
    *
    */
-  @Override
   public void run() {
     // System.out.println(this.getName()+ ":run()");
-
-    int i;
-    String lMessage;
 
     mPainting.init();
 
@@ -479,11 +471,7 @@ public class PaintingAnts extends java.applet.Applet implements Runnable {
     fpsTimer.start();
 
     showStatus("starting...");
-    // Create the thread.
-    mApplis = new Thread(this);
-    // and let it start running
-    mApplis.setPriority(Thread.MIN_PRIORITY);
-    mApplis.start();
+    run();
   }
 
   /****************************************************************************/
@@ -505,7 +493,6 @@ public class PaintingAnts extends java.applet.Applet implements Runnable {
     }
 
     mThreadColony = null;
-    mApplis = null;
   }
 
   /**
