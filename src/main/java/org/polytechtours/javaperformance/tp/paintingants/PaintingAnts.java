@@ -154,9 +154,9 @@ public class PaintingAnts extends java.applet.Applet implements Runnable {
     if (mBaseImage == null) {
       return;
     }
-    Graphics2D g2 = (Graphics2D) g;
-    g2.drawImage(mBaseImage, null, null);
-    //g.drawImage(mBaseImage, 0, 0, this);
+    /*Graphics2D g2 = (Graphics2D) g;
+    g2.drawImage(mBaseImage, null, null);*/
+    g.drawImage(mBaseImage, 0, 0, this);
   }
   /****************************************************************************/
   /****************************************************************************/
@@ -451,7 +451,6 @@ public class PaintingAnts extends java.applet.Applet implements Runnable {
    * deux couleurs
    *
    */
-  @Override
   public void run() {
     // System.out.println(this.getName()+ ":run()");
 
@@ -508,7 +507,6 @@ public class PaintingAnts extends java.applet.Applet implements Runnable {
     mThreadColony.setPriority(Thread.MIN_PRIORITY);
 
     fpsTimer = new Timer(1000, new ActionListener() {
-      @Override
       public void actionPerformed(ActionEvent e) {
         updateFPS();
       }

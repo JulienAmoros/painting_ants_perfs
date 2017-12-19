@@ -85,7 +85,7 @@ public class CPainting extends JPanel implements MouseListener {
         }
 
       }
-      repaint();
+      //repaint();
     }
     
 
@@ -139,7 +139,7 @@ public class CPainting extends JPanel implements MouseListener {
 
       /*for (i = 0; i != mDimension.width; i++) {
         for (j = 0; j != mDimension.height; j++) {
-          mCouleurs[i][j] = new Color(mCouleurFond.getRed(), mCouleurFond.getGreen(), mCouleurFond.getBlue());
+          mCouleurs[i][j] = new MyColor(mCouleurFond.getRed(), mCouleurFond.getGreen(), mCouleurFond.getBlue());
           canvas.setRGB(i, j, mCouleurs[i][j].getColor());
         }
       }*/
@@ -310,10 +310,13 @@ public class CPainting extends JPanel implements MouseListener {
           //pGraphics.setColor(mCouleurs[i][j]);
           //pGraphics.fillRect(i, j, 1, 1);
         	canvas.setRGB(i, j, mCouleurs[i][j].getColor());
+        	
         }
       }
-      repaint();
-      super.paintComponent(pGraphics);
+      pGraphics.drawImage(canvas,0,0,this);
+
+      //repaint();
+      /*super.paintComponent(pGraphics);*/
       Graphics2D g2 = (Graphics2D) pGraphics;
       g2.drawImage(canvas, null, null);
     }
@@ -336,7 +339,7 @@ public class CPainting extends JPanel implements MouseListener {
         //mGraphics.setColor(c);
         //mGraphics.fillRect(x, y, 1, 1);
     	  canvas.setRGB(x, y, c.getColor());
-    	  repaint();
+    	  //repaint();
       }
 
       mCouleurs[x][y] = c;
@@ -375,7 +378,7 @@ public class CPainting extends JPanel implements MouseListener {
               }
             }
           }
-          repaint();
+          //repaint();
           break;
         case 2:
           // produit de convolution discrete sur 25 cases
@@ -405,7 +408,7 @@ public class CPainting extends JPanel implements MouseListener {
 
             }
           }
-          repaint();
+          //repaint();
           break;
         case 3:
           // produit de convolution discrete sur 49 cases
@@ -435,7 +438,7 @@ public class CPainting extends JPanel implements MouseListener {
 
             }
           }
-          repaint();
+          //repaint();
           break;
       }// end switch
     }
@@ -448,7 +451,7 @@ public class CPainting extends JPanel implements MouseListener {
   public void suspendre() {
     mSuspendu = !mSuspendu;
     if (!mSuspendu) {
-      repaint();
+      //repaint();
     }
   }
 }

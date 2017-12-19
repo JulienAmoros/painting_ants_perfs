@@ -27,7 +27,7 @@ public class CColonie implements Runnable {
     mContinue = false;
   }
 
-  @Override
+
   public void run() {
 
     while (mContinue == true) {

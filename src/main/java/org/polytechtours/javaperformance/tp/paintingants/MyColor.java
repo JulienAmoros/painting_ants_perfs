@@ -1,7 +1,7 @@
 package org.polytechtours.javaperformance.tp.paintingants;
 
 public class MyColor {
-    public int color;
+    public int color=0;
 
     public MyColor(int r, int g, int b){
         color = (r<<(2*8)) + (g<<8) + b;
