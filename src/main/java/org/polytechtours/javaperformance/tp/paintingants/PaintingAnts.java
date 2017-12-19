@@ -10,6 +10,7 @@ import java.net.URL;
 import java.net.URLClassLoader;
 import java.util.StringTokenizer;
 import java.util.Vector;
+import java.awt.Graphics2D;
 
 import javax.swing.Timer;
 
@@ -153,7 +154,9 @@ public class PaintingAnts extends java.applet.Applet implements Runnable {
     if (mBaseImage == null) {
       return;
     }
-    g.drawImage(mBaseImage, 0, 0, this);
+    Graphics2D g2 = (Graphics2D) g;
+    g2.drawImage(mBaseImage, null, null);
+    //g.drawImage(mBaseImage, 0, 0, this);
   }
   /****************************************************************************/
   /****************************************************************************/
@@ -234,7 +237,7 @@ public class PaintingAnts extends java.applet.Applet implements Runnable {
   private void readParameterFourmis() {
     String lChaine;
     int R, G, B;
-    Color lCouleurDeposee, lCouleurSuivie;
+    MyColor lCouleurDeposee, lCouleurSuivie;
     CFourmi lFourmi;
     float lProbaTD, lProbaG, lProbaD, lProbaSuivre, lSeuilLuminance;
     char lTypeDeplacement = ' ';
@@ -315,7 +318,7 @@ public class PaintingAnts extends java.applet.Applet implements Runnable {
         if (B == -1) {
           B = (int) (Math.random() * 256);
         }
-        lCouleurDeposee = new Color(R, G, B);
+        lCouleurDeposee = new MyColor(R, G, B);
         System.out.print("Parametres de la fourmi " + lNbFourmis + ":(" + R + "," + G + "," + B + ")");
 
         // lecture de la couleur suivie
@@ -323,7 +326,7 @@ public class PaintingAnts extends java.applet.Applet implements Runnable {
         R = readIntParameter(lSTCouleurSuivi.nextToken());
         G = readIntParameter(lSTCouleurSuivi.nextToken());
         B = readIntParameter(lSTCouleurSuivi.nextToken());
-        lCouleurSuivie = new Color(R, G, B);
+        lCouleurSuivie = new MyColor(R, G, B);
         System.out.print("(" + R + "," + G + "," + B + ")");
 
         // lecture de la position de la direction de départ et de la taille de
@@ -383,7 +386,7 @@ public class PaintingAnts extends java.applet.Applet implements Runnable {
     {
 
       int i;
-      Color lTabColor[] = new Color[lNbFourmis];
+      MyColor lTabColor[] = new MyColor[lNbFourmis];
       int lColor;
 
       // initialisation aléatoire de la couleur de chaque fourmi
@@ -391,7 +394,7 @@ public class PaintingAnts extends java.applet.Applet implements Runnable {
         R = (int) (Math.random() * 256);
         G = (int) (Math.random() * 256);
         B = (int) (Math.random() * 256);
-        lTabColor[i] = new Color(R, G, B);
+        lTabColor[i] = new MyColor(R, G, B);
       }
 
       // construction des fourmis

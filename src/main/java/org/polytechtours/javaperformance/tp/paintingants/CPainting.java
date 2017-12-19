@@ -5,6 +5,7 @@ import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.image.BufferedImage;
+import javax.swing.JPanel;
 
 // version : 2.0
 import java.awt.Graphics2D;
@@ -32,7 +33,7 @@ import java.awt.event.MouseListener;
  * @version 1.0
  */
 
-public class CPainting extends Canvas implements MouseListener {
+public class CPainting extends JPanel implements MouseListener {
   private static final long serialVersionUID = 1L;
   // matrice servant pour le produit de convolution
   static private float[][] mMatriceConv9 = new float[3][3];
@@ -48,7 +49,7 @@ public class CPainting extends Canvas implements MouseListener {
   // il sert aussi pour la fonction paint du Canvas
   private MyColor[][] mCouleurs;
   // couleur du fond
-  private MyColor mCouleurFond = new MyColor(255, 255, 255);
+  private MyColor mCouleurFond = new MyColor(0, 0, 255);
   // dimensions
   private Dimension mDimension = new Dimension();
 
@@ -77,14 +78,16 @@ public class CPainting extends Canvas implements MouseListener {
     mCouleurs = new MyColor[mDimension.width][mDimension.height];
     canvas = new BufferedImage(mDimension.width, mDimension.height, BufferedImage.TYPE_INT_ARGB);
     synchronized (mMutexCouleurs) {
-      for (i = 0; i != mDimension.width; i++) {
-        for (j = 0; j != mDimension.height; j++) {
-          mCouleurs[i][j] = new MyColor(mCouleurFond.getRed(), mCouleurFond.getGreen(), mCouleurFond.getBlue());
-          canvas.setRGB(i, j, mCouleurs[i][j].getColor());
+    	for (int x = 0; x < canvas.getWidth(); x++) {
+            for (int y = 0; y < canvas.getHeight(); y++) {
+          mCouleurs[x][y] = new MyColor(mCouleurFond.getRed(), mCouleurFond.getGreen(), mCouleurFond.getBlue());
+          canvas.setRGB(x, y, mCouleurs[x][y].getColor());
         }
+
       }
+      repaint();
     }
-    repaint();
+    
 
   }
 
@@ -309,10 +312,12 @@ public class CPainting extends Canvas implements MouseListener {
         	canvas.setRGB(i, j, mCouleurs[i][j].getColor());
         }
       }
-    }
-	  super.paintComponent(pGraphics);
-      Graphics2D g2 = (Graphics2D) g;
+      repaint();
+      super.paintComponent(pGraphics);
+      Graphics2D g2 = (Graphics2D) pGraphics;
       g2.drawImage(canvas, null, null);
+    }
+	 
   }
 
   /******************************************************************************
@@ -323,7 +328,7 @@ public class CPainting extends Canvas implements MouseListener {
   public void setCouleur(int x, int y, MyColor c, int pTaille) {
     int i, j, k, l, m, n;
     float R, G, B;
-    Color lColor;
+    MyColor lColor;
 
     synchronized (mMutexCouleurs) {
       if (!mSuspendu) {
@@ -356,7 +361,7 @@ public class CPainting extends Canvas implements MouseListener {
                   B += CPainting.mMatriceConv9[k][l] * mCouleurs[m][n].getBlue();
                 }
               }
-              lColor = new Color((int) R, (int) G, (int) B);
+              lColor = new MyColor((int) R, (int) G, (int) B);
 
               //mGraphics.setColor(lColor);
               
