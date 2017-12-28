@@ -154,8 +154,6 @@ public class PaintingAnts extends java.applet.Applet implements Runnable {
     if (mBaseImage == null) {
       return;
     }
-    /*Graphics2D g2 = (Graphics2D) g;
-    g2.drawImage(mBaseImage, null, null);*/
     g.drawImage(mBaseImage, 0, 0, this);
   }
   /****************************************************************************/
